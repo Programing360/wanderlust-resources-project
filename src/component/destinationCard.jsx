@@ -6,16 +6,7 @@ import Link from 'next/link';
 const TravelCard = ({destinationCard}) => {
 
     const {_id, image, title,country,rating,price, duration} = destinationCard
-// {
-// "_id": "6a0217d3e1ae22a68d17f1b1",
-// "id": 1,
-// "title": "Bali Paradise",
-// "country": "Nepal",
-// "price": 2700,
-// "duration": "7 Days / 6 Nights",
-// "rating": 4.5,
-// "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-// },
+
   return (
     <div className=" group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-purple-200/50 transition-all duration-500 border border-gray-100">
       
@@ -80,7 +71,7 @@ const TravelCard = ({destinationCard}) => {
           <div className="flex -space-x-2">
             {[1, 2, 3].map((i) => (
               <div key={i} className="w-7 h-7 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="user" />
+                {/* <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="user" /> */}
               </div>
             ))}
             <div className="w-7 h-7 rounded-full border-2 border-white bg-purple-50 text-[10px] flex items-center justify-center text-purple-600 font-bold">

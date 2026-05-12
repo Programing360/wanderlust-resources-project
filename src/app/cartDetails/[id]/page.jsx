@@ -1,11 +1,14 @@
-import React from 'react';
+import DestinationCartDetails from "@/component/DestinationCartDetails";
+import { cartDetails } from "@/lib/data";
+import React from "react";
 
-const CartDetails = () => {
-    return (
-        <div>
-            hello
-        </div>
-    );
+const page = async ({ params }) => {
+  const { id } = await params;
+  const cartDetailsData = await cartDetails(id);
+  console.log(cartDetailsData);
+  return <div>
+    <DestinationCartDetails cartDetailsData={cartDetailsData}></DestinationCartDetails>
+  </div>;
 };
 
-export default CartDetails;
+export default page;

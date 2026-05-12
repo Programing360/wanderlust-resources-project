@@ -5,7 +5,6 @@ import React from 'react';
 const Destination =async () => {
 
     const destinationDatas = await destinationData()
-    // console.log(destinationDatas);
 
     return (
         <div className='container mx-auto mt-20'>
