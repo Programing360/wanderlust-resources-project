@@ -1,26 +1,40 @@
 'use client'
 import React, { useState } from 'react';
-import { Trash2, Plus, Minus, ArrowLeft, CreditCard, ShieldCheck, Star, MapPin, Clock } from 'lucide-react';
+import { 
+  Trash2, Plus, Minus, ArrowLeft, CreditCard, 
+  ShieldCheck, Star, MapPin, Clock, Edit3, XCircle 
+} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { UpdateDestinationCart } from './UpdateDestinationCart';
 
-
-const DestinationCartDetails = ({cartDetailsData}) => {
-
-    // Quantity manage korar jonno state
+const DestinationCartDetails = ({ cartDetailsData }) => {
   const [quantity, setQuantity] = useState(1);
-   const totalPrice = cartDetailsData.price * quantity;
-   
-    return (
-        <div>
-            <div className="max-w-6xl mx-auto">
+  const totalPrice = cartDetailsData.price * quantity;
+
+
+  const handleCancel = () => {
+    if (confirm("Are you sure you want to cancel this booking?")) {
+      console.log("Booking Cancelled");
+      // Add your delete/cancel logic here
+    }
+  };
+
+  return (
+    <div className="py-10 px-4">
+      <div className="max-w-6xl mx-auto">
         
-        {/* Header */}
-        <div className="flex items-center gap-4 mb-10">
-          <Link href="/" className="p-3 bg-white rounded-2xl shadow-sm hover:bg-gray-50 transition-all border border-gray-100">
-            <ArrowLeft size={20} className="text-gray-600" />
-          </Link>
-          <h1 className="text-3xl font-black text-gray-900 tracking-tight">Booking Details</h1>
+        {/* Header with Back Button */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+          <div className="flex items-center gap-4">
+            <Link href="/" className="p-3 bg-white rounded-2xl shadow-sm hover:bg-gray-50 transition-all border border-gray-100">
+              <ArrowLeft size={20} className="text-gray-600" />
+            </Link>
+            <h1 className="text-3xl font-black text-gray-900 tracking-tight">Booking Details</h1>
+          </div>
+          
+          {/* Top Level Action Buttons */}
+          <UpdateDestinationCart cartDetailsData={cartDetailsData}></UpdateDestinationCart>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -32,12 +46,13 @@ const DestinationCartDetails = ({cartDetailsData}) => {
                 
                 {/* Image Section */}
                 <div className="relative w-full md:w-64 h-64 shrink-0">
-                  <Image src={cartDetailsData.image} alt={cartDetailsData.title} width={200} height={40} className="w-full h-full object-cover rounded-[2rem] shadow-lg"></Image>
-                  {/* <img 
+                  <Image 
                     src={cartDetailsData.image} 
                     alt={cartDetailsData.title} 
+                    width={400} 
+                    height={400} 
                     className="w-full h-full object-cover rounded-[2rem] shadow-lg"
-                  /> */}
+                  />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-sm">
                     <Star size={14} className="fill-yellow-400 text-yellow-400" />
                     <span className="text-xs font-black text-gray-800">{cartDetailsData.rating}</span>
@@ -89,19 +104,19 @@ const DestinationCartDetails = ({cartDetailsData}) => {
               </div>
             </div>
 
-            {/* Additional Info Box */}
+            {/* Protection Box */}
             <div className="mt-6 p-6 bg-purple-50 rounded-[2rem] border border-purple-100 flex items-start gap-4">
                <div className="p-3 bg-white rounded-2xl shadow-sm text-purple-600">
                   <ShieldCheck size={24} />
                </div>
                <div>
                   <h4 className="font-bold text-purple-900">Wanderlust Protection Included</h4>
-                  <p className="text-sm text-purple-700/70 leading-relaxed">This booking includes our premium insurance cover. Secure your trip against unexpected changes with our 24/7 support.</p>
+                  <p className="text-sm text-purple-700/70 leading-relaxed">Secure your trip against unexpected changes with our 24/7 support.</p>
                </div>
             </div>
           </div>
 
-          {/* Right Side: Price Summary */}
+          {/* Right Side: Price Summary & Primary Actions */}
           <div className="lg:col-span-4">
             <div className="bg-[#111] rounded-[2.5rem] p-8 text-white shadow-2xl shadow-purple-200/20 sticky top-10">
               <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
@@ -109,10 +124,6 @@ const DestinationCartDetails = ({cartDetailsData}) => {
               </h3>
 
               <div className="space-y-5 mb-8">
-                <div className="flex justify-between text-gray-400 text-sm">
-                  <span>Price per person</span>
-                  <span className="text-white font-bold">${cartDetailsData.price.toLocaleString()}</span>
-                </div>
                 <div className="flex justify-between text-gray-400 text-sm">
                   <span>Travelers</span>
                   <span className="text-white font-bold">x {quantity}</span>
@@ -123,27 +134,47 @@ const DestinationCartDetails = ({cartDetailsData}) => {
                 </div>
                 <div className="h-[1px] bg-white/10 my-4"></div>
                 <div className="flex justify-between items-end">
-                  <span className="text-gray-300">Total Amount</span>
+                  <span className="text-gray-300 font-medium">Total Amount</span>
                   <span className="text-3xl font-black text-purple-400">${totalPrice.toLocaleString()}</span>
                 </div>
               </div>
 
-              <button className="w-full bg-purple-600 hover:bg-purple-500 py-5 rounded-[1.5rem] font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-lg shadow-purple-600/20 active:scale-95">
-                <CreditCard size={20} />
-                Reserve Now
-              </button>
+              {/* Action Buttons */}
+              <div className="flex flex-col gap-4">
+                <button className="w-full bg-purple-600 hover:bg-purple-500 py-5 rounded-[1.5rem] font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-lg shadow-purple-600/20 active:scale-95">
+                  <CreditCard size={20} />
+                  Reserve Now
+                </button>
 
-              <button className="w-full mt-4 py-3 text-gray-500 hover:text-red-400 transition-all flex items-center justify-center gap-2 text-sm font-bold">
-                <Trash2 size={16} />
-                Remove from Cart
-              </button>
+                <div className="grid grid-cols-2 gap-3">
+                    <button 
+                      // onClick={handleEdit}
+                      className="flex items-center justify-center gap-2 py-3 bg-white/5 hover:bg-white/10 rounded-2xl text-sm font-bold transition-all border border-white/10"
+                    >
+                      <Edit3 size={16} />
+                      Modify
+                    </button>
+                    <button 
+                      onClick={handleCancel}
+                      className="flex items-center justify-center gap-2 py-3 bg-red-500/10 hover:bg-red-500/20 rounded-2xl text-red-400 text-sm font-bold transition-all border border-red-500/20"
+                    >
+                      <XCircle size={16} />
+                      Cancel
+                    </button>
+                </div>
+                
+                <button className="w-full mt-2 py-2 text-gray-500 hover:text-red-400 transition-all flex items-center justify-center gap-2 text-[12px] font-bold uppercase tracking-tighter">
+                  <Trash2 size={14} />
+                  Permanently Remove
+                </button>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default DestinationCartDetails;
