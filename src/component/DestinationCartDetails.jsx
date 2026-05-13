@@ -21,7 +21,7 @@ const DestinationCartDetails = ({ cartDetailsData }) => {
   };
 
   return (
-    <div className="py-10 px-4">
+    <div className="py-10 px-4 ">
       <div className="max-w-6xl mx-auto">
         
         {/* Header with Back Button */}

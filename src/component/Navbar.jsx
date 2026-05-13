@@ -25,7 +25,7 @@ import {
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(!true);
   const router = useRouter();
 
   const { data: session, isPending } = authClient.useSession();
@@ -101,7 +101,9 @@ const Navbar = () => {
                   <DropdownMenu
                     aria-label="User menu"
                     variant="flat"
-                    className="w-64 border top-20 absolute right-90 bg-white rounded-lg shadow-lg p-2"
+                    className={`${
+                      isOpen ? "block" : "hidden"
+                    }' w-64 border top-20 absolute -right-0 md:right-90 bg-white rounded-lg shadow-lg p-2'`}
                     itemClasses={{
                       base: "py-3",
                     }}
