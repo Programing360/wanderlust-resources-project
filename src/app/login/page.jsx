@@ -29,26 +29,32 @@ export default function LoginForm() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log("Login Data:", data);
-    const {data:user, error} = await authClient.signIn.email({
-        email: data.email,
-        password: data.password
-    })
+    const { data: user, error } = await authClient.signIn.email({
+      email: data.email,
+      password: data.password,
+    });
 
-    if(user){
-        toast.success('User Login Successful')
-        redirect('/')
-    }else{
-        toast.error('Login Failed. Please try again.')
+    if (user) {
+      toast.success("User Login Successful");
+      redirect("/");
+    } else {
+      toast.error("Login Failed. Please try again.");
     }
   };
 
-  // social Login 
+  // social Login
   const handleSocialLogin = async () => {
-     const data = await authClient.signIn.social({
-    provider: "google",
-  });
-  console.log(data);
-  }
+    const { data } = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+    if (data) {
+      toast.success('Login Successful')
+      redirect('/')
+    } else {
+      toast.error('Login Failed. Please try again.')
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50 px-4">
@@ -186,7 +192,7 @@ export default function LoginForm() {
         {/* Social Buttons */}
         <div className="flex flex-col gap-3">
           <Button
-          onClick={handleSocialLogin}
+            onClick={handleSocialLogin}
             className="w-full border-gray-200 font-bold"
             variant="bordered"
             radius="xl"

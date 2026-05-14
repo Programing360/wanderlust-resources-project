@@ -39,7 +39,7 @@ const Navbar = () => {
       },
     });
   };
-
+  console.log(session);
   // ইউজারের নামের প্রথম অক্ষর বের করার লজিক
   const userInitial = session?.user?.name
     ? session.user.name.charAt(0).toUpperCase()
@@ -212,7 +212,7 @@ const Navbar = () => {
             {session ? (
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  {session?.user?.image ?<Avatar
+                  {session?.user?.image ? <Avatar
                     size="md"
                     src={session?.user?.image}
                     name={userInitial}
