@@ -37,6 +37,13 @@ export default function SignUpPage() {
     console.log("Sign Up Data:", data, error);
   };
 
+   // social Login 
+    const handleSocialLogin = async () => {
+       const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+    }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen rounded-4xl bg-gray-50 py-12 px-4">
       {/* Header Section */}
@@ -133,6 +140,7 @@ export default function SignUpPage() {
           {/* Social Buttons */}
           <div className="flex flex-col gap-3">
             <Button
+            onClick={handleSocialLogin}
               className="w-full border-gray-200 font-bold"
               variant="bordered"
               radius="xl"

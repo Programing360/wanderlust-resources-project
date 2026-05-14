@@ -88,14 +88,15 @@ const Navbar = () => {
                 <DropdownTrigger onClick={() => setIsOpen(!isOpen)}>
                   <div className="flex items-center gap-2 cursor-pointer group p-1 pr-3 rounded-full hover:bg-gray-50 transition-all">
                     <Avatar>
-                    <Avatar.Fallback className="bg-cyan-400">{userInitial}</Avatar.Fallback>
-                  </Avatar>
+                      <Avatar.Fallback className="bg-cyan-400">
+                        {userInitial}
+                      </Avatar.Fallback>
+                    </Avatar>
                     <ChevronDown
                       size={14}
                       className="text-gray-400 group-hover:text-purple-600 transition-colors"
                     />
                   </div>
-                  
                 </DropdownTrigger>
                 {isOpen && (
                   <DropdownMenu
@@ -124,7 +125,7 @@ const Navbar = () => {
                         <User size={18} className="text-gray-400" />
                       }
                     >
-                      My Profile
+                      <Link href="/myProfile">My Profile</Link>
                     </DropdownItem>
 
                     <DropdownItem
@@ -211,12 +212,18 @@ const Navbar = () => {
             {session ? (
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <Avatar
+                  {session?.user?.image ?<Avatar
                     size="md"
                     src={session?.user?.image}
                     name={userInitial}
-                    showFallback
-                  />
+                    showfallback="true"
+                  /> : <Avatar>
+                      <Avatar.Fallback className="bg-cyan-400">
+                        {userInitial}
+                      </Avatar.Fallback>
+                    </Avatar>}
+                  
+
                   <div>
                     <p className="font-bold text-gray-800">
                       {session?.user?.name}

@@ -42,6 +42,14 @@ export default function LoginForm() {
     }
   };
 
+  // social Login 
+  const handleSocialLogin = async () => {
+     const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  console.log(data);
+  }
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50 px-4">
       <div className="flex flex-col w-full max-w-md bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100">
@@ -178,6 +186,7 @@ export default function LoginForm() {
         {/* Social Buttons */}
         <div className="flex flex-col gap-3">
           <Button
+          onClick={handleSocialLogin}
             className="w-full border-gray-200 font-bold"
             variant="bordered"
             radius="xl"
