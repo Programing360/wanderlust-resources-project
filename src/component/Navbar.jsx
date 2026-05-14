@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   Menu,
@@ -11,7 +10,6 @@ import {
   ShieldCheck,
   ChevronDown,
 } from "lucide-react";
-import logoImage from "../../public/assets/Wanderlast.png";
 import { authClient } from "@/lib/auth-client";
 import {
   Dropdown,
@@ -39,7 +37,6 @@ const Navbar = () => {
       },
     });
   };
-  console.log(session);
   // ইউজারের নামের প্রথম অক্ষর বের করার লজিক
   const userInitial = session?.user?.name
     ? session.user.name.charAt(0).toUpperCase()
@@ -57,14 +54,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* --- Left: Logo --- */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <Image
-                src={logoImage}
-                alt="Wanderlast logo"
-                width={130}
-                height={30}
-                className="object-contain"
-              />
+            <Link href="/" className=" flex items-center">
+              <h1 className="text-lg md:text-4xl font-bold text-purple-600">Wanderlust</h1>
             </Link>
           </div>
 
@@ -212,17 +203,20 @@ const Navbar = () => {
             {session ? (
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  {session?.user?.image ? <Avatar
-                    size="md"
-                    src={session?.user?.image}
-                    name={userInitial}
-                    showfallback="true"
-                  /> : <Avatar>
+                  {session?.user?.image ? (
+                    <Avatar
+                      size="md"
+                      src={session?.user?.image}
+                      name={userInitial}
+                      showfallback="true"
+                    />
+                  ) : (
+                    <Avatar>
                       <Avatar.Fallback className="bg-cyan-400">
                         {userInitial}
                       </Avatar.Fallback>
-                    </Avatar>}
-                  
+                    </Avatar>
+                  )}
 
                   <div>
                     <p className="font-bold text-gray-800">

@@ -1,7 +1,7 @@
 import TravelCard from "@/component/destinationCard";
 import { destinationData } from "@/lib/data";
 import { Button } from "@heroui/react";
-import { PlusIcon, Compass } from "lucide-react";
+import { PlusIcon, Compass, Plus } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -29,13 +29,13 @@ const Destination = async () => {
 
           <Link href={'/createDestination'}>
             <Button 
-              color="secondary" 
+               
               size="lg"
               radius="full"
-              className="font-bold px-8 shadow-lg shadow-purple-200 hover:scale-105 transition-transform"
+              className="font-bold px-8 shadow-lg bg-purple-500 shadow-purple-200 hover:scale-105 transition-transform"
               startContent={<PlusIcon size={20} />}
             >
-              Create Destination
+             <Plus></Plus> Create Destination
             </Button>
           </Link>
         </div>

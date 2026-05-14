@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
           {features.map((item, index) => (
             <div 
               key={index} 
-              className="bg-white p-10 shadow-sm border border-gray-50 flex flex-col items-start transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="bg-white p-10 shadow-sm border border-gray-50 rounded-4xl flex flex-col items-start transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               {/* Icon */}
               <div className="mb-6 p-2 rounded-lg">

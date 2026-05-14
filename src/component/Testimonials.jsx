@@ -61,7 +61,7 @@ const Testimonials = () => {
       {/* Header with Custom Swiper Buttons */}
       <div className="flex justify-between items-end mb-12">
         <div>
-          <h2 className="text-5xl font-serif text-gray-900 mb-2 tracking-tight">What Travelers Say</h2>
+          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-2 tracking-tight">What Travelers Say</h2>
           <p className="text-gray-500 text-lg">Real experiences from our happy travelers</p>
         </div>
         
@@ -99,7 +99,7 @@ const Testimonials = () => {
       >
         {reviews.map((review) => (
           <SwiperSlide key={review.id}>
-            <div className="border border-gray-100 p-8 flex flex-col md:flex-row gap-6 items-center md:items-start bg-white h-full shadow-sm hover:shadow-md transition-shadow">
+            <div className="border border-gray-100 p-8 rounded-4xl flex flex-col md:flex-row gap-6 items-center md:items-start bg-white h-full shadow-sm hover:shadow-md transition-shadow">
               {/* Text Content */}
               <div className="flex-1 space-y-6">
                 <p className="text-xl font-medium leading-relaxed text-gray-800 italic">
@@ -116,7 +116,7 @@ const Testimonials = () => {
               </div>
 
               {/* Image Container */}
-              <div className="w-full md:w-48 h-60 relative flex-shrink-0 overflow-hidden">
+              <div className="w-full md:w-48 h-60 relative rounded-4xl flex-shrink-0 overflow-hidden">
                 <img 
                   src={review.image} 
                   alt={review.name}
