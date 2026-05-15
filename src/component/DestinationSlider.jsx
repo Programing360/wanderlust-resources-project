@@ -10,8 +10,15 @@ import Link from "next/link";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { Button } from "@heroui/react";
+import { destinationDataById } from "./Hook/destinationDataById";
+import { authClient } from "@/lib/auth-client";
 
 const DestinationSlider = ({ data }) => {
+
+   const { data: session, isPending } = authClient.useSession();
+   const userId = session?.user?.id || null;
+
   // কার্ডের জন্য অ্যানিমেশন ভ্যারিয়েন্টস
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -102,6 +109,9 @@ const DestinationSlider = ({ data }) => {
                   </motion.button>
                 </Link>
               </div>
+              <Button onClick={() => destinationDataById(item, userId)} className={'w-full bg-purple-500 mt-4'}>
+                Booking now
+              </Button>
             </div>
           </motion.div>
         </SwiperSlide>

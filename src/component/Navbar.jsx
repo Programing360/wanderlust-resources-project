@@ -45,7 +45,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Destination", href: "/destination" },
-    { name: "My Booking", href: "/bookings" },
+    { name: "My Booking", href: "/myBooking" },
   ];
 
   return (
