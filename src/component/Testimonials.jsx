@@ -99,7 +99,7 @@ const Testimonials = () => {
       >
         {reviews.map((review) => (
           <SwiperSlide key={review.id}>
-            <div className="border border-gray-100 p-8 rounded-4xl flex flex-col md:flex-row gap-6 items-center md:items-start bg-white h-full shadow-sm hover:shadow-md transition-shadow">
+            <div data-aos="zoom-in-up" className="border border-gray-100 p-8 rounded-4xl flex flex-col md:flex-row gap-6 items-center md:items-start bg-white h-full shadow-sm hover:shadow-md transition-shadow">
               {/* Text Content */}
               <div className="flex-1 space-y-6">
                 <p className="text-xl font-medium leading-relaxed text-gray-800 italic">
