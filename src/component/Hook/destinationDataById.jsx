@@ -2,14 +2,14 @@ import { bookingData } from "@/lib/data";
 import { toast } from "react-toastify";
 
 export const destinationDataById = async (data, userId) => {
-   if (!userId) {
+  if (!userId) {
     toast.error("Please login to book this destination");
     return;
   }
-  console.log(data)
+
   if (userId) {
     const bookingInfo = await bookingData(userId);
-    console.log(bookingInfo);
+
     const alreadyBooked = bookingInfo.some(
       (booking) => booking.data._id === data._id,
     );

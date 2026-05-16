@@ -44,7 +44,7 @@ const Banner = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6"
         >
           Discover Your <br /> 
-          <span className="text-cyan-400">Next Adventure</span>
+          <span className="text-purple-600">Next Adventure</span>
         </motion.h1>
 
         <motion.p 
@@ -56,7 +56,7 @@ const Banner = () => {
         </motion.p>
 
         <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-16">
-          <button className="uppercase bg-cyan-500 hover:bg-cyan-600 px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-cyan-500/30 active:scale-95">
+          <button className="uppercase bg-purple-500 hover:bg-purple-600 px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-purple-500/30 active:scale-95">
             Explore Now
           </button>
           <button className="uppercase bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 px-10 py-4 rounded-full font-bold transition-all active:scale-95">
@@ -76,9 +76,9 @@ const Banner = () => {
           
           {/* Location */}
           <div className="flex items-center gap-4 w-full md:w-auto flex-1 p-3">
-            <MapPin className="text-cyan-400 shrink-0" size={24} />
+            <MapPin className="text-purple-400 shrink-0" size={24} />
             <div className="w-full">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400/80 mb-1">Location</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400/80 mb-1">Location</h3>
               <input 
                 type="text" 
                 placeholder="Where to?" 
@@ -91,9 +91,9 @@ const Banner = () => {
 
           {/* Date */}
           <div className="flex items-center gap-4 w-full md:w-auto flex-1 p-3">
-            <Calendar className="text-cyan-400 shrink-0" size={24} />
+            <Calendar className="text-purple-400 shrink-0" size={24} />
             <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400/80 mb-1">Duration</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400/80 mb-1">Duration</h3>
               <p className="text-base font-semibold whitespace-nowrap">Anytime • 3 Days</p>
             </div>
           </div>
@@ -102,9 +102,9 @@ const Banner = () => {
 
           {/* Budget */}
           <div className="flex items-center gap-4 w-full md:w-auto flex-1 p-3">
-            <CircleDollarSign className="text-cyan-400 shrink-0" size={24} />
+            <CircleDollarSign className="text-purple-400 shrink-0" size={24} />
             <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400/80 mb-1">Budget</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400/80 mb-1">Budget</h3>
               <p className="text-base font-semibold whitespace-nowrap">$0 - $3000</p>
             </div>
           </div>
@@ -113,15 +113,15 @@ const Banner = () => {
 
           {/* Guests */}
           <div className="flex items-center gap-4 w-full md:w-auto flex-1 p-3">
-            <Users className="text-cyan-400 shrink-0" size={24} />
+            <Users className="text-purple-400 shrink-0" size={24} />
             <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400/80 mb-1">People</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400/80 mb-1">People</h3>
               <p className="text-base font-semibold whitespace-nowrap">5-10 Guests</p>
             </div>
           </div>
 
           {/* Search Button */}
-          <button className="bg-cyan-500 hover:bg-cyan-600 transition-all w-full md:w-auto px-12 py-5 md:py-6 rounded-2xl md:rounded-full flex items-center justify-center gap-3 font-black shadow-lg shadow-cyan-500/40 active:scale-95">
+          <button className="bg-purple-500 hover:bg-purple-600 transition-all w-full md:w-auto px-12 py-5 md:py-6 rounded-2xl md:rounded-full flex items-center justify-center gap-3 font-black shadow-lg shadow-purple-500/40 active:scale-95">
             <Search size={22} />
             <span className="md:hidden">Find Experience</span>
           </button>
